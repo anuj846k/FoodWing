@@ -11,7 +11,7 @@ const parent=React.createElement("div",{id:'parent'},[
 
 
 //thats where the jsx comes into the picture
-// and we will not use React.createElement() method agian
+// and we will not use React.createElement() method again
 
 
 console.log(parent);
@@ -19,4 +19,4 @@ console.log(parent);
 
 
 const root=ReactDOM.createRoot(document.getElementById('root'));
-root.render(parent); 
+root.render(parent);//render appends this in the div root in the index.html file
