@@ -25,7 +25,7 @@ A: `React` is a JavaScript library for building User Interfaces whereas `ReactDO
 
 A: `Development` is the stage of an application before it's made public while `production` is the term used for the same application when it's made `public`.
 `Development build` is several times (maybe 3-5x) `slower` than the `production build`.
-
+z
 ## Q: Difference between a `Library and Framework`?
 
 A: A framework is a set of pre-written code that provides a structure for developing software applications. A library, on the other hand, is a collection of pre-written code that can be used to perform specific tasks.
