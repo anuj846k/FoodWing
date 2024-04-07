@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "start": "parcel \"C:\\Users\\anuj8\\Desktop\\Namaste -React\\Episode-03-Laying the Foundation\\code\\index.html\"",
+    "build": "parcel build \"C:\\Users\\anuj8\\Desktop\\Namaste -React\\Episode-02-Laying the Foundation\\code\\index.html\"",
     "test": "jest"
   },
   "repository": {
@@ -30,10 +32,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserlist":[
+  "browserlist": [
     "last 2 versions"
-
   ]
-    
-  
 }
