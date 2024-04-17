@@ -136,7 +136,61 @@ body {
     font-weight: 600;
 }
 
-.logo-container > h1{
+.logo-container > h1 {
     color: white;
     margin-left: 10px;
+    font-style: italic;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+}
+
+/* Shimmer effect for Cards */
+.shimmer-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .shimmer-cards{
+    width: 270px; /* Adjust card width as needed */
+    height: 200px; /* Adjust card height as needed */
+    position: relative;
+    padding: 15px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+  }
+  
+  
+  .shimmer-cards::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    animation: shimmer 2s infinite linear;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+#login{
+    padding: 3px;
+    border-radius: 5px;
+    border: solid orange;
+    color: white;
+    background: #2c3e50;
 }
