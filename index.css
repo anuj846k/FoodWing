@@ -69,7 +69,7 @@ body {
 }
 
 .res-card {
-    
+    /* overflow: hidden; */
     width: 270px; 
     padding: 15px; 
     border: 1px solid #ccc;
@@ -89,12 +89,16 @@ body {
     margin-bottom: 10px;
     color: #333;
     font-size: 20px;
+    overflow: auto; /* Allow text to overflow if it doesn't fit */
+    word-wrap: break-word;
 }
 
 .res-card h4 {
     color: #888;
     margin-bottom: 5px;
     font-size: 16px; /* Adjust font size */
+    overflow: auto; /* Allow text to overflow if it doesn't fit */
+    word-wrap: break-word;
 }
 
 .res-card h4#rating {
@@ -110,6 +114,8 @@ body {
     color: #333;
     margin-bottom: 5px;
     font-size: 16px; /* Adjust font size */
+    overflow: auto; /* Allow text to overflow if it doesn't fit */
+    word-wrap: break-word;
 }
 
 .res-card img {
@@ -125,7 +131,7 @@ body {
     transform: scale(1.05);
 }
 
-.filter-btn{
+.filter-btn{    
     margin: 10px;
     cursor: pointer;
     padding: 10px;
@@ -148,6 +154,7 @@ body {
 
 /* Shimmer effect for Cards */
 .shimmer-container {
+    margin-top: 90px;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -157,7 +164,7 @@ body {
   
   .shimmer-cards{
     width: 270px; /* Adjust card width as needed */
-    height: 200px; /* Adjust card height as needed */
+    height: 340px; /* Adjust card height as needed */
     position: relative;
     padding: 15px;
     overflow: hidden;
@@ -193,4 +200,29 @@ body {
     border: solid orange;
     color: white;
     background: #2c3e50;
+}
+
+
+.filter{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.search-btn{
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgb(233, 156, 14);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+}
+
+
+.search-box {
+    border: orange 2px solid;
+    border-radius: 5px;
+    padding: 10px;
 }

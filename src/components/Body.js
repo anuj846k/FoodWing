@@ -1,4 +1,4 @@
-import RestarurantComponent from "./RestaurantCompo";
+import RestaurantComponent from "./RestaurantCompo";
 // import reslist from "../utils/mockdata";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -7,6 +7,11 @@ const Body = () => {
   //Local state variables -super powerful Variables
 
   const [listofres, setListofRes] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filteredRestaurant, setFilteredRestant] = useState([]);
+
+  //whenever state variables update ,react triggers a reconciliation cycle (re-renders the component)
+  console.log("body rendered");
 
   useEffect(() => {
     fetchData();
@@ -24,31 +29,56 @@ const Body = () => {
     setListofRes(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setFilteredRestant(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   //conditional rendering ->rendering based on some condition
 
-
-  return (listofres.length===0? (<Shimmer/>): (
+  return listofres.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="Search">
+          <input
+            type="text"
+            className="search-box"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+          <button
+            className="search-btn"
+            onClick={() => {
+              console.log(search);
+              const filteredRestaurant = listofres.filter((res) =>
+                res.info.name.toLowerCase().includes(search.toLowerCase())
+              );
+              setFilteredRestant(filteredRestaurant);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
             const filteredList = listofres.filter(
-              (restaurant) => restaurant.info.avgRating > 4.5
+              (restaurant) => restaurant.info.avgRating > 4.2
             );
             setListofRes(filteredList);
           }}
-
         >
           Top-Rated Restaurants
         </button>
       </div>
       <div className="res-container">
         <div className="res-container">
-          {listofres.map((restaurant) => (
-            <RestarurantComponent
+          {filteredRestaurant.map((restaurant) => (
+            <RestaurantComponent
               key={restaurant.info.id}
               resData={restaurant}
             />
@@ -56,7 +86,7 @@ const Body = () => {
         </div>
       </div>
     </div>
-  ));
+  );
 };
 
 export default Body;
