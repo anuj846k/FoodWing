@@ -67,7 +67,7 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listofres.filter(
-              (restaurant) => restaurant.info.avgRating > 4.2
+              (restaurant) => restaurant?.info?.avgRating > 4.2
             );
             setListofRes(filteredList);
           }}
@@ -79,7 +79,7 @@ const Body = () => {
         <div className="res-container">
           {filteredRestaurant.map((restaurant) => (
             <RestaurantComponent
-              key={restaurant.info.id}
+              key={restaurant?.info?.id}
               resData={restaurant}
             />
           ))}

@@ -5,7 +5,7 @@ const RestaurantComponent = ({ resData }) => {
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
         alt="Res-card image"
-        src={CDN_URL + resData.info.cloudinaryImageId}
+        src={CDN_URL + resData?.info?.cloudinaryImageId}
       />
       <h3>{resData.info.name}</h3>
       <h4>{resData.info.cuisines.join(", ")}</h4> {/* Added join(" ") */}
