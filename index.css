@@ -44,18 +44,18 @@ body {
     gap: 20px;
 }
 
-.navitems ul li {
+.navitems ul li a {
+    text-decoration: none;
     color: #f8f9fa;
     font-weight: 500;
     transition: all 0.3s ease-in-out;
 }
 
-.navitems ul li:hover {
+.navitems ul li a:hover {
     cursor: pointer;
     color: #f39c12;
     transform: translateY(-3px);
 }
-
 .app {
     margin: 20px;
 }
@@ -142,7 +142,7 @@ body {
     font-weight: 600;
 }
 
-.logo-container > h1 {
+.logo-container > a {
     color: white;
     margin-left: 10px;
     font-style: italic;
