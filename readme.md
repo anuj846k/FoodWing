@@ -75,18 +75,24 @@ A: `Single Page Application (SPA)` is a web application that dynamically updates
 
 
 ## React Component Lifecycle and API Calls
-In React, when dealing with components that require data from an external source such as an API, it's important to understand the lifecycle and the sequence of events to ensure a smooth user experience. `Here's a breakdown of the typical sequence`:
 
-`Load `: When a React component is loaded, it initiates the rendering process.
-`Render`: The component renders based on its initial state and props. This initial render might not have any dynamic data.
-`API Call`: After the initial render, if your component needs data from an external source (like an API), you make the API call. This is typically done in lifecycle methods like componentDidMount. This method is called once after the initial render, ensuring that the component is fully initialized and mounted in the DOM.
-`Render Again with Data`: Once the data is fetched from the API, the component's state or props are updated with this new data. This triggers a re-render of the component, but this time with the dynamic data included. The UI updates to reflect the fetched data.
+In React, when dealing with components that require data from an external source such as an API, it's important to understand the lifecycle and the sequence of events to ensure a smooth user experience. Here's a breakdown of the typical sequence:
+
+- **Load**: When a React component is loaded, it initiates the rendering process.
+- **Render**: The component renders based on its initial state and props. This initial render might not have any dynamic data.
+- **API Call**: After the initial render, if your component needs data from an external source (like an API), you make the API call. This is typically done in lifecycle methods like `componentDidMount`. This method is called once after the initial render, ensuring that the component is fully initialized and mounted in the DOM.
+- **Render Again with Data**: Once the data is fetched from the API, the component's state or props are updated with this new data. This triggers a re-render of the component, but this time with the dynamic data included. The UI updates to reflect the fetched data.
+
 ## Why Render Before API Call?
+
 The reason we follow the sequence of `load -> render -> API call -> render` is primarily due to the asynchronous nature of JavaScript and the React lifecycle. Making API calls is often asynchronous, so if we were to make the API call before rendering, the UI would freeze or display incomplete data until the API call completes. By rendering first and then making the API call, we ensure that the initial UI is displayed quickly, providing a better user experience. Once the data is fetched, we update the UI with the complete information.
 
 ## Benefits of This Approach
-`Improved User Experience`: Displaying the initial UI quickly and then updating it with fetched data provides a smoother experience for the user.
-`Separation of Concerns`: Separating rendering from data-fetching logic makes the code easier to understand, maintain, and debug.
-`Controlled Rendering`: Rendering before making the API call gives better control over the UI, preventing freezing or incomplete data display.
 
-By following this sequence, React components can efficiently handle data fetching from APIs while maintaining a `responsive and user-friendly interface`.
+- **Improved User Experience**: Displaying the initial UI quickly and then updating it with fetched data provides a smoother experience for the user.
+
+- **Separation of Concerns**: Separating rendering from data-fetching logic makes the code easier to understand, maintain, and debug.
+
+- **Controlled Rendering**: Rendering before making the API call gives better control over the UI, preventing freezing or incomplete data display.
+
+By following this sequence, React components can efficiently handle data fetching from APIs while maintaining a responsive and user-friendly interface.
