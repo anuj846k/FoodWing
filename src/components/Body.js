@@ -19,7 +19,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
 
@@ -69,7 +69,7 @@ const Body = () => {
             const filteredList = listofres.filter(
               (restaurant) => restaurant?.info?.avgRating > 4.2
             );
-            setListofRes(filteredList);
+            setFilteredRestant(filteredList);
           }}
         >
           Top-Rated Restaurants
@@ -78,7 +78,10 @@ const Body = () => {
       <div className="res-container">
         <div className="res-container">
           {filteredRestaurant.map((restaurant) => (
-            <Link key={restaurant?.info?.id} to={"/restaurants/"+restaurant?.info?.id}>
+            <Link
+              key={restaurant?.info?.id}
+              to={"/restaurants/" + restaurant?.info?.id}
+            >
               <RestaurantComponent resData={restaurant} />
             </Link>
           ))}

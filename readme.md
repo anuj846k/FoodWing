@@ -27,7 +27,8 @@ If differences are found (for example, different attributes, different order of 
 - Server Side Routing
 
     ## Client Side Routing 
-        - Provides a smoother user experience by avoiding full page reloads.
+        - Provides a smoother user experience by avoiding full page reloads. 
+        - We can use React Router Dom from npm for client side routing.
         - Dynamic content updates using JavaScript.
     
     ## Server Side Routing
