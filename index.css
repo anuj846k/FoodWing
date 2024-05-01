@@ -235,3 +235,188 @@ body {
     border: 1px solid black;
     margin: 20px;
 }
+
+.menu-container {
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.restaurant-name {
+    color: #333333; /* Dark text color */
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.cuisine-info {
+    color: #000000; /* Black text color */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.cuisine-info {
+    color: #000080; /* Dark blue text color */
+}
+
+.delivery-time{
+    color: #ff8800;
+}
+.menu-home {
+    border-radius: 20px;
+    border: 1px solid rgba(2, 6, 12, 0.15);
+    background: #ffffff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.04);
+    padding: 10px;
+    width: 50%;
+    margin: 20px auto;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+
+.menu-heading {
+    color: #333333; /* Dark text color */
+    font-size: 1.5rem;
+    margin: 20px auto; /* Center the heading horizontally */
+    text-align: center;
+    border-top: 2px solid #ccc; /* Solid border on top */
+    border-bottom: 2px solid #ccc; /* Solid border on bottom */
+    padding: 10px 0; /* Added padding for spacing */
+    max-width: 80%; /* Limit the width to prevent overly long lines */
+}
+
+
+.menu-home:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: rgba(2, 6, 12, 0.3);
+}
+
+.menu-home:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: rgba(2, 6, 12, 0.3);
+}
+
+
+.menu-home {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left, .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+
+
+
+
+
+
+
+
+/* menu deisgn */
+
+/* Menu container */
+.menu-item-list-container {
+    background-color: #ffffff; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+/* Menu item list */
+.menu-item-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+/* Individual menu item */
+.menu-item {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0; /* Light border */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menu item name and price */
+.menu-item-info {
+    flex: 1;
+    margin-right: 10px; /* Spacing between name and price */
+}
+
+/* Menu item name */
+.menu-item-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333333; /* Dark text color */
+}
+
+/* Menu item price */
+.menu-item-price {
+    font-size: 1.2rem;
+    color: #666666; /* Lighter text color */
+}
+
+/* Menu item details */
+.menu-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu item description */
+.item-description {
+    color: #777777; /* Lighter text color for description */
+    font-size: 0.9rem;
+    margin-top: 5px; /* Spacing above description */
+    word-break: break-word;
+}
+
+/* Menu item image */
+.menu-item img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 20px; /* Spacing between description and image */
+}
+
+/* Menu item on hover */
+.menu-item:hover {
+    background-color: #f9f9f9; /* Light background color on hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Menu item image on hover */
+.menu-item img:hover {
+    transform: scale(1.05); /* Scale up image on hover */
+    transition: transform 0.3s ease;
+}
+
+/* Menu item name on hover */
+.menu-item-name:hover {
+    color: #ff6f61; /* Change text color on hover */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Menu item price on hover */
+.menu-item-price:hover {
+    color: #ff6f61; /* Change text color on hover */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Menu item description on hover */
+.item-description:hover {
+    color: #777777; /* Revert to default color on hover */
+    transition: color 0.3s ease;
+}
