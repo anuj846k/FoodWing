@@ -102,9 +102,9 @@ By following this sequence, React components can efficiently handle data fetchin
 
 
 
-# Optimising our APP
+# Optimising our APP 🚀
 
-## Q:When and why do we need `lazy()`?
+## Q: When and why do we need `lazy()`?
 A : `lazy()` is a function provided by React for loading components lazily, meaning they're loaded only when they're actually rendered.
 By using `lazy()`, you can reduce the size of the initial JavaScript payload that needs to be fetched and parsed by the browser, speeding up the initial load time of your app.
 It's particularly useful for components that are not always needed, such as modals or dialog boxes, or for large components that can slow down the initial load time of your app.
@@ -113,23 +113,25 @@ It's particularly useful for components that are not always needed, such as moda
     In this example About will onle be loaded when it's rendered for the first time.    
 ## Q: What is Suspense ??
 A: `<Suspense>` lets you display a fallback until its children have finished loading
-    - <Suspense fallback={<Loading />}>
+        - <Suspense fallback={<Loading />}>
         <SomeComponent />
-      </Suspense> 
+      </Suspense>
 
 
-## Q:Why we got this `error`: A component was suspended while responding to `synchronous input`. This will cause the `UI` to be replaced with a `loading indicator`. To `fix this`, `updates that suspend` should be wrapped with `start transition`? How does `suspense fix` this error?
+### Q: Why we got this `error`: A component was suspended while responding to `synchronous input`. This will cause the `UI` to be replaced with a `loading indicator`. To `fix this`, `updates that suspend` should be wrapped with `start transition`? How does `suspense fix` this error?
 A: Wrapping a component inside Suspense is indeed necessary when using lazy-loaded components or when a component might suspend.
 
 ## Q:`Advantages and Disadvantages` of using this `code splitting pattern`?
 A: 
-`Advantages`
-    - You can significantly reduce the initial load time of your app. This is especially beneficial for users with slow internet connections.
+- **Advantages**
+    -`Improved Performance` You can significantly reduce the initial load time of your app. This is especially beneficial for users with slow internet connections.
+
     - `Code splitting` encourages you to break your app into smaller, more manageable components, which can make your codebase easier to understand and maintain.
 
-`Disadvantages`
+- **Disadvantages**
     - `Complexity` :Implementing code splitting can add complexity to your codebase. You need to decide where to split your code, handle loading states, and manage potentially more network requests.
+
     - `Dependency` on Network Speed ,If a user has a slow internet connection,they might experience delays when loading your codebase.
 
-## Q: When `do we and why do we need suspense`?    
+## Q: When do we and why do we need suspense?    
 A: We need to use React's `<Suspense>` when we want to wait for some code to load and display a fallback UI while we’re waiting. This is often used with lazy() for code splitting.
