@@ -3,57 +3,29 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useFetchData from "../utils/useFetchData";
+import Skeleton from "react-loading-skeleton";
 
 const Body = () => {
   //Local state variables -super powerful Variables
 
-  const [listofres, setListofRes] = useState([]);
   const [search, setSearch] = useState("");
-  const [filteredRestaurant, setFilteredRestant] = useState([]);
+  const {listofres,filteredRestaurant,setFilteredRestaurant}=useFetchData();
+ 
 
-  //whenever state variables update ,react triggers a reconciliation cycle (re-renders the component)
-  console.log("body rendered");
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-
-    console.log(json);
-
-    //Optional chaining
-    setListofRes(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
-
-
+//This is a custom hook that is imported 
   const onlineStatus=useOnlineStatus();
 
+
   if(onlineStatus===false) return(
-    <h1>Looks like You are Offline !! Please check your internet connection</h1>
+    <h1>Looks like You are Offline ❗❗Please check your internet connection🛜</h1>
   )
-
-
-
-
-
-
-
-
+  
 
   //conditional rendering ->rendering based on some condition
 
   return listofres.length === 0 ? (
-    <Shimmer />
+    <Shimmer/>
   ) : (
     <div className="body">
       <div className="filter">
@@ -73,7 +45,7 @@ const Body = () => {
               const filteredRestaurant = listofres.filter((res) =>
                 res.info.name.toLowerCase().includes(search.toLowerCase())
               );
-              setFilteredRestant(filteredRestaurant);
+              setFilteredRestaurant(filteredRestaurant);
             }}
           >
             Search
@@ -85,7 +57,7 @@ const Body = () => {
             const filteredList = listofres.filter(
               (restaurant) => restaurant?.info?.avgRating > 4.2
             );
-            setFilteredRestant(filteredList);
+            setFilteredRestaurant(filteredList);
           }}
         >
           Top-Rated Restaurants

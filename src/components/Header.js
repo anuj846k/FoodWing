@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
+import { FiShoppingCart } from "react-icons/fi";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -16,13 +17,15 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <Link to="/"><img src={LOGO_URL}></img></Link>
+        <Link to="/">
+          <img src={LOGO_URL}></img>
+        </Link>
         <Link to="/">Foody</Link>
       </div>
       <div className="navitems">
         <ul>
           <li>
-            <Link >Online Status: {onlineStatus ? "✅" : "🔴"}</Link>
+            <Link>Online Status: {onlineStatus ? "✅" : "🔴"}</Link>
           </li>
           <li>
             <Link to="/">Home</Link>
@@ -39,7 +42,10 @@ const Header = () => {
             <Link to="/Grocery">Grocery</Link>
           </li>
           <li>
-            <Link to="/Cart">Cart</Link>
+            <Link to="/Cart">
+              {" "}
+              <FiShoppingCart />
+            </Link>
           </li>
 
           <button
