@@ -124,7 +124,7 @@ A: Wrapping a component inside Suspense is indeed necessary when using lazy-load
 ## Q:`Advantages and Disadvantages` of using this `code splitting pattern`?
 A: 
 - **Advantages**
-    -`Improved Performance` You can significantly reduce the initial load time of your app. This is especially beneficial for users with slow internet connections.
+    - `Improved Performance` You can significantly reduce the initial load time of your app. This is especially beneficial for users with slow internet connections.
 
     - `Code splitting` encourages you to break your app into smaller, more manageable components, which can make your codebase easier to understand and maintain.
 
