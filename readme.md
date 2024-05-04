@@ -1,4 +1,4 @@
-## Notes of React.js [most important notes]
+## Notes of React.js [most important notes]🎯
 
 
 # React Hooks 
@@ -7,7 +7,7 @@
 -useState() 80% will be used->Superpowerful state variable change in react
 -useEffect() 20% will be used
 
-## React virtual Dom concept or Reconciliation
+## 🔴React virtual Dom concept or Reconciliation
 
 Whenever state or props is changed using hooks like useState and useEffect, react creates a new virtual DOM and then compares it with the old DOM ,it sees if there is any difference btw each of them ,if yes it Updates the Real DOM.
 TO be more specific:-
@@ -15,7 +15,7 @@ If differences are found (for example, different attributes, different order of 
 
 
 
-## useEffect() important topic
+## 🔴useEffect() important topic
     - useEffect() hook has two arguments one is callback function and other is empty dependencies array which means If you pass an empty array ([]), the effect will only run once after the first render.
     - If there will be no dependencies array the api will be called again and again,This is because by default, effects run after every completed render.
 
@@ -53,17 +53,19 @@ useEffect(() => {
 
 
 
-## 2 types of Routing in web application 
+
+
+## 🔴2 types of Routing in web application 
 
 - Client Side Routing
 - Server Side Routing
 
-    ## Client Side Routing 
+    ## ✅Client Side Routing 
         - Provides a smoother user experience by avoiding full page reloads. 
         - We can use React Router Dom from npm for client side routing.
         - Dynamic content updates using JavaScript.
     
-    ## Server Side Routing
+    ## ✅Server Side Routing
         - Full page reloads occur when the URL changes. This makes website slower
         - Server determines which content to send based on the URL. [Nodejs is used for that remember making ```app.get('/about', (req, res) => {
         res.send('Welcome to about us page');
@@ -74,7 +76,7 @@ useEffect(() => {
 A: `Single Page Application (SPA)` is a web application that dynamically updates the webpage with data from web server without reloading/refreshing the entire page. All the HTML, CSS, JS are retrieved in the initial load and other data/resources can be loaded dynamically whenever required. An SPA is sometimes referred to as a `single-page interface (SPI)`.
 
 
-## React Component Lifecycle and API Calls
+## 🔴React Component Lifecycle and API Calls
 
 In React, when dealing with components that require data from an external source such as an API, it's important to understand the lifecycle and the sequence of events to ensure a smooth user experience. Here's a breakdown of the typical sequence:
 
@@ -87,7 +89,7 @@ In React, when dealing with components that require data from an external source
 
 The reason we follow the sequence of `load -> render -> API call -> render` is primarily due to the asynchronous nature of JavaScript and the React lifecycle. Making API calls is often asynchronous, so if we were to make the API call before rendering, the UI would freeze or display incomplete data until the API call completes. By rendering first and then making the API call, we ensure that the initial UI is displayed quickly, providing a better user experience. Once the data is fetched, we update the UI with the complete information.
 
-## Benefits of This Approach
+## Benefits of This Approach🤔
 
 - **Improved User Experience**: Displaying the initial UI quickly and then updating it with fetched data provides a smoother experience for the user.
 
@@ -96,3 +98,38 @@ The reason we follow the sequence of `load -> render -> API call -> render` is p
 - **Controlled Rendering**: Rendering before making the API call gives better control over the UI, preventing freezing or incomplete data display.
 
 By following this sequence, React components can efficiently handle data fetching from APIs while maintaining a responsive and user-friendly interface.
+
+
+
+
+# Optimising our APP
+
+## Q:When and why do we need `lazy()`?
+A : `lazy()` is a function provided by React for loading components lazily, meaning they're loaded only when they're actually rendered.
+By using `lazy()`, you can reduce the size of the initial JavaScript payload that needs to be fetched and parsed by the browser, speeding up the initial load time of your app.
+It's particularly useful for components that are not always needed, such as modals or dialog boxes, or for large components that can slow down the initial load time of your app.
+    Example usage:
+        - const About=lazy(()=>import ("./src/components/About"))
+    In this example About will onle be loaded when it's rendered for the first time.    
+## Q: What is Suspense ??
+A: `<Suspense>` lets you display a fallback until its children have finished loading
+    - <Suspense fallback={<Loading />}>
+        <SomeComponent />
+      </Suspense> 
+
+
+## Q:Why we got this `error`: A component was suspended while responding to `synchronous input`. This will cause the `UI` to be replaced with a `loading indicator`. To `fix this`, `updates that suspend` should be wrapped with `start transition`? How does `suspense fix` this error?
+A: Wrapping a component inside Suspense is indeed necessary when using lazy-loaded components or when a component might suspend.
+
+## Q:`Advantages and Disadvantages` of using this `code splitting pattern`?
+A: 
+`Advantages`
+    - You can significantly reduce the initial load time of your app. This is especially beneficial for users with slow internet connections.
+    - `Code splitting` encourages you to break your app into smaller, more manageable components, which can make your codebase easier to understand and maintain.
+
+`Disadvantages`
+    - `Complexity` :Implementing code splitting can add complexity to your codebase. You need to decide where to split your code, handle loading states, and manage potentially more network requests.
+    - `Dependency` on Network Speed ,If a user has a slow internet connection,they might experience delays when loading your codebase.
+
+## Q: When `do we and why do we need suspense`?    
+A: We need to use React's `<Suspense>` when we want to wait for some code to load and display a fallback UI while we’re waiting. This is often used with lazy() for code splitting.

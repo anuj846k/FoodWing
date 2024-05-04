@@ -2,6 +2,7 @@ import RestaurantComponent from "./RestaurantCompo";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //Local state variables -super powerful Variables
@@ -33,6 +34,21 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+
+  const onlineStatus=useOnlineStatus();
+
+  if(onlineStatus===false) return(
+    <h1>Looks like You are Offline !! Please check your internet connection</h1>
+  )
+
+
+
+
+
+
+
+
 
   //conditional rendering ->rendering based on some condition
 
