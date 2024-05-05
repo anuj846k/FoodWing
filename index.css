@@ -157,45 +157,52 @@ body {
 
 
 .shimmer-container {
-    margin-top: 90px;
-    padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
+    gap: 20px;
+    margin-top: 90px;
+    padding: 20px;
   }
-  
-  .shimmer-cards{
-    width: 270px; 
-    height: 390px; 
-    position: relative;
+
+
+.res-card.skeleton {
+    width: 270px;
+    height: 400px;
     padding: 15px;
-    overflow: hidden;
+    border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     background-color: #fff;
   }
   
-  
-  .shimmer-cards::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 150%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-    animation: shimmer .5s infinite linear;
+  .img-skeleton {
+    width: 100%;
+    height: 170px;
+    border-radius: 5px;
+    margin-bottom: 10px;
   }
   
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
+  .content-skeleton {
+    padding: 0 10px;
   }
+  
+  .title-skeleton {
+    margin-bottom: 10px;
+  }
+  
+  .subtitle-skeleton {
+    margin-bottom: 5px;
+  }
+  
+  .rating-skeleton {
+    margin-bottom: 5px;
+  }
+  
+  .tag-skeleton {
+    margin-bottom: 5px;
+  }
+  
+  
   
 #login{
     padding: 3px;
@@ -308,9 +315,6 @@ body {
     flex-direction: column;
     justify-content: center;
   }
-
-
-
 
 
 

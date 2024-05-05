@@ -25,7 +25,7 @@ const Header = () => {
       <div className="navitems">
         <ul>
           <li>
-            <Link>Online Status: {onlineStatus ? "✅" : "🔴"}</Link>
+            <Link to="#">Online Status: {onlineStatus ? "✅" : "🔴"}</Link>
           </li>
           <li>
             <Link to="/">Home</Link>
