@@ -1,65 +1,66 @@
-import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
-
 import { FiShoppingCart } from "react-icons/fi";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
-  const [btnName, setBtnName] = useState("Login");
-  console.log("Header render");
-  //If no dependencies array => useEffect is called on every render
-  //If dependency array is empty=[]=>useEffect is called only once after the first render() or just once it is called ;
-  //If dependency array has some values=>useEffect is called only when the values in the dependency array is updated;
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <Link to="/">
-          <img src={LOGO_URL}></img>
-        </Link>
-        <Link to="/">Foody</Link>
+    <header className="bg-white text-black shadow-md  m-2 rounded-md">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div className="flex items-center">
+          <Link to="/">
+            <img className="transition duration-300 transform hover:scale-110 w-20 h-20 rounded-full border-4 p-1 border-orange-500" src={LOGO_URL} alt="Logo" />
+          </Link>
+          <Link to="/" className="text-4xl ml-2 font-bold transition duration-300 ease-in-out hover:text-orange-500">
+            FoodWing
+          </Link>
+        </div>
+        <nav className="flex items-center space-x-6">
+          <ul className="flex space-x-4">
+            <li>
+              <Link to="/" className="text-lg hover:text-orange-500 ">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="text-lg hover:text-orange-500">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="text-lg hover:text-orange-500">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/grocery" className="text-lg hover:text-orange-500">
+                Grocery
+              </Link>
+            </li>
+            <li className="relative flex items-center text-4xl">
+              <Link to="/cart" className="text-lg hover:text-orange-500">
+                <FiShoppingCart size={24}/>
+              </Link>
+            </li>
+          </ul>
+          <div className="flex items-center">
+            <p className="mr-4">
+              Online Status: {onlineStatus ? "✅" : "🔴"}
+            </p>
+            <button
+              className="text-lg bg-transparent border border-black px-4 py-2 rounded-md transition-colors hover:bg-black hover:text-white"
+              onClick={() => setIsLoggedIn((prevState) => !prevState)}
+            >
+              {isLoggedIn ? "Logout" : "Login"}
+            </button>
+          </div>
+        </nav>
       </div>
-      <div className="navitems">
-        <ul>
-          <li>
-            <Link to="#">Online Status: {onlineStatus ? "✅" : "🔴"}</Link>
-          </li>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-
-          <li>
-            <Link to="/About">About</Link>
-          </li>
-
-          <li>
-            <Link to="/Contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/Grocery">Grocery</Link>
-          </li>
-          <li>
-            <Link to="/Cart">
-              {" "}
-              <FiShoppingCart />
-            </Link>
-          </li>
-
-          <button
-            id="login"
-            className="login"
-            onClick={() => {
-              btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-            }}
-          >
-            {btnName}
-          </button>
-        </ul>
-      </div>
-    </div>
+    </header>
   );
 };
 

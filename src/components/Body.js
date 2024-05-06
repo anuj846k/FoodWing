@@ -1,47 +1,39 @@
-import RestaurantComponent from "./RestaurantCompo";
-import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useFetchData from "../utils/useFetchData";
-import Skeleton from "react-loading-skeleton";
+import RestaurantComponent from "./RestaurantCompo";
 
 const Body = () => {
-  //Local state variables -super powerful Variables
-
   const [search, setSearch] = useState("");
-  const {listofres,filteredRestaurant,setFilteredRestaurant}=useFetchData();
- 
+  const { listofres, filteredRestaurant, setFilteredRestaurant } = useFetchData();
+  const onlineStatus = useOnlineStatus();
 
-//This is a custom hook that is imported 
-  const onlineStatus=useOnlineStatus();
-
-
-  if(onlineStatus===false) return(
-    <h1>Looks like You are Offline ❗❗Please check your internet connection🛜</h1>
-  )
-  
-
-  //conditional rendering ->rendering based on some condition
+  if (!onlineStatus) {
+    return (
+      <h1 className="text-red-500 text-center mt-8">
+        Looks like You are Offline ❗❗Please check your internet connection🛜
+      </h1>
+    );
+  }
 
   return listofres.length === 0 ? (
-    <Shimmer/>
+    <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="Search">
+    <div className="flex flex-col items-center m-4">
+      <div className="flex items-center justify-end w-full mb-6">
+        <div className="Search mr-3">
           <input
             type="text"
-            className="search-box"
+            className="border border-orange-500 px-3 py-2 rounded-md focus:outline-none focus:border-orange-500"
+            placeholder="Search..."
             value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <button
-            className="search-btn"
+            className="px-4 py-2 bg-orange-500 text-white rounded-md ml-2"
             onClick={() => {
-              console.log(search);
               const filteredRestaurant = listofres.filter((res) =>
                 res.info.name.toLowerCase().includes(search.toLowerCase())
               );
@@ -52,7 +44,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="filter-btn px-4 py-2 bg-yellow-400 text-white mr-2 rounded-md"
           onClick={() => {
             const filteredList = listofres.filter(
               (restaurant) => restaurant?.info?.avgRating > 4.2
@@ -63,17 +55,15 @@ const Body = () => {
           Top-Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
-        <div className="res-container">
-          {filteredRestaurant.map((restaurant) => (
-            <Link
-              key={restaurant?.info?.id}
-              to={"/restaurants/" + restaurant?.info?.id}
-            >
-              <RestaurantComponent resData={restaurant} />
-            </Link>
-          ))}
-        </div>
+      <div className="flex flex-wrap justify-center">
+        {filteredRestaurant.map((restaurant) => (
+          <Link
+            key={restaurant?.info?.id}
+            to={"/restaurants/" + restaurant?.info?.id}
+          >
+            <RestaurantComponent resData={restaurant} />
+          </Link>
+        ))}
       </div>
     </div>
   );
