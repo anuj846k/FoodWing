@@ -4,12 +4,16 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { IoMdStar } from "react-icons/io";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
-  
+
+
+  const [showIndex,setShowIndex] =useState(0);
+
 
   const { name, cuisines, costForTwoMessage, sla, avgRating } =
     resInfo?.cards[2]?.card?.card?.info || {};
@@ -27,9 +31,9 @@ const RestaurantMenu = () => {
 
   console.log(categories);
 
-  return resInfo===null?(
-    <Shimmer/>
-  ):(
+  return resInfo === null ? (
+    <Shimmer />
+  ) : (
     <div className="flex relative flex-col items-center">
       <div className="rounded-2xl p-3 w-1/2  m-5">
         <div className="flex justify-between items-center border p-4 rounded-lg shadow-md">
@@ -60,14 +64,20 @@ const RestaurantMenu = () => {
         MENU
         <MdOutlineRestaurantMenu />
       </h2>
-      {categories&&categories.map((category) => (
-        <RestaurantCategory
-          key={category?.card?.card.title}
-          info={category?.card?.card}
-        />
-      ))}
+      {categories && categories.length > 0 ? (
+        categories.map((category,index) => (
+          // Controlled component as parent is controlling the state
+          <RestaurantCategory
+            key={category?.card?.card.title}
+            info={category?.card?.card}
+            showItems={index===showIndex? true : false}
+            setShowIndex={()=>setShowIndex(index)}
+          />
+        ))
+      ) : (
+        <p className="text-gray-500 text-lg">Menu not available</p>
+      )}
     </div>
   );
 };
-
 export default RestaurantMenu;

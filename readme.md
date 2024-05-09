@@ -135,3 +135,15 @@ A:
 
 ## Q: When do we and why do we need suspense?    
 A: We need to use React's `<Suspense>` when we want to wait for some code to load and display a fallback UI while we’re waiting. This is often used with lazy() for code splitting.
+
+
+
+
+# Data is the new oil
+
+## Controlled and uncontrolled data 
+*Uncontrolled Components:*
+In uncontrolled components, the parent doesn't directly manage or control the state of the child components. Instead, the child components manage their own state internally.
+
+**Controlled Components:**
+Controlled components allow the parent to manage and control the state of the child components. The parent passes down the state to the children as props, and any changes to the state are managed by the parent component.
