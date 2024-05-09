@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useFetchData from "../utils/useFetchData";
-import RestaurantComponent from "./RestaurantCompo";
+import RestaurantCard, { isOpen } from "./RestaurantCompo";
 
 const Body = () => {
   const [search, setSearch] = useState("");
-  const { listofres, filteredRestaurant, setFilteredRestaurant } = useFetchData();
+  const { listofres, filteredRestaurant, setFilteredRestaurant } =
+    useFetchData();
   const onlineStatus = useOnlineStatus();
+
+  const RestaurantCompoIsOpen = isOpen(RestaurantCard);
 
   if (!onlineStatus) {
     return (
@@ -47,7 +50,7 @@ const Body = () => {
           className="filter-btn px-4 py-2 bg-yellow-400 text-white mr-2 rounded-md"
           onClick={() => {
             const filteredList = listofres.filter(
-              (restaurant) => restaurant?.info?.avgRating > 4.2
+              (restaurant) => restaurant?.info?.avgRating > 4.4
             );
             setFilteredRestaurant(filteredList);
           }}
@@ -61,7 +64,7 @@ const Body = () => {
             key={restaurant?.info?.id}
             to={"/restaurants/" + restaurant?.info?.id}
           >
-            <RestaurantComponent resData={restaurant} />
+          <RestaurantCard resData={restaurant} />
           </Link>
         ))}
       </div>

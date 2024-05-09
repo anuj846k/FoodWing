@@ -1,16 +1,15 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { CDN_URL } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { IoMdStar } from "react-icons/io";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
-import { useState } from "react";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
-  const resInfo=useRestaurantMenu(resId);
-  const [expandedItem, setExpandedItem] = useState(null);
+  const resInfo = useRestaurantMenu(resId);
+  
 
   const { name, cuisines, costForTwoMessage, sla, avgRating } =
     resInfo?.cards[2]?.card?.card?.info || {};
@@ -19,9 +18,18 @@ const RestaurantMenu = () => {
     resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card || {};
 
-  return resInfo === null ? (
-    <Shimmer />
-  ) : (
+  const categories =
+    resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
+  console.log(categories);
+
+  return resInfo===null?(
+    <Shimmer/>
+  ):(
     <div className="flex relative flex-col items-center">
       <div className="rounded-2xl p-3 w-1/2  m-5">
         <div className="flex justify-between items-center border p-4 rounded-lg shadow-md">
@@ -52,62 +60,12 @@ const RestaurantMenu = () => {
         MENU
         <MdOutlineRestaurantMenu />
       </h2>
-      <div className="mt-3 w-3/5 pl-8 pr-8 mb-10 items-center border rounded-lg shadow-lg">
-        <ul>
-          {itemCards &&
-            itemCards.map((item) => (
-              <li key={item.card.info.id} className="border-b py-3">
-                <div className="flex justify-between items-center">
-                  <div className="flex flex-col">
-                    <span className="text-lg font-semibold text-gray-800">
-                      {item.card.info.name}
-                    </span>
-                    <span className="text-black-600 mb-2 font-semibold">
-                      Rs.{" "}
-                      {item.card.info.price / 100 ||
-                        item.card.info.defaultPrice / 100}
-                    </span>
-                    <span className="text-gray-600 mr-16">
-                      {expandedItem === item.card.info.id ? (
-                        <>
-                          {item.card.info.description}
-                          <span
-                            className="text-orange-500 cursor-pointer"
-                            onClick={() => setExpandedItem(null)}
-                          >
-                            {" "}
-                            Less
-                          </span>
-                        </>
-                      ) :  item.card.info.description && item.card.info.description.length > 10? (
-                        <>
-                          {item.card.info.description.substring(0,100)}...
-                          <span
-                            className="text-orange-500 cursor-pointer "
-                            onClick={() => setExpandedItem(item.card.info.id)}
-                          >
-                            {" "}
-                            More
-                          </span>
-                        </>
-                      ) : (
-                        item.card.info.description
-                      )}
-                    </span>
-                  </div>
-                 <div className="flex flex-col">
-                 <img
-                    src={CDN_URL + item.card.info.imageId}
-                    alt="Item Image"
-                    className="w-44 h-32 mt-4 object-cover rounded-xl"
-                  />
-                  <button className="font-bold text-green-600 px-3 py-2 bg-white rounded-lg shadow-lg mb-4 mt-4 hover:bg-gray-200 hover:transform hover:scale-105 hover:shadow-md">ADD</button>
-                 </div>
-                </div>
-              </li>
-            ))}
-        </ul>
-      </div>
+      {categories&&categories.map((category) => (
+        <RestaurantCategory
+          key={category?.card?.card.title}
+          info={category?.card?.card}
+        />
+      ))}
     </div>
   );
 };
