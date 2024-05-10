@@ -16,8 +16,10 @@ If differences are found (for example, different attributes, different order of 
 
 
 ## 🔴useEffect() important topic
-    ```- useEffect() hook has two arguments one is callback function and other is empty dependencies array which means If you pass an empty array ([]), the effect will only run once after the first render.
-    - If there will be no dependencies array the api will be called again and again,This is because by default, effects run after every completed render.
+    ```
+    useEffect() hook has two arguments one is callback function and other is empty dependencies array which means If you pass an empty array ([]), the effect will only run once after the first render.
+    If there will be no dependencies array the api will be called again and again,This is because by default, effects run after every completed render.
+    
     ```
 
 ## Q: How will `useEffect` behave if we `don't add` a `dependency array`?
