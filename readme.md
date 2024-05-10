@@ -149,11 +149,11 @@ A: We need to use React's `<Suspense>` when we want to wait for some code to loa
 - **Controlled Components:**
     - Controlled components allow the parent to manage and control the state of the child components. The parent passes down the state to the children as props, and any changes to the state are managed by the parent component.
 
-## What is prop drilling?
+## Q: What is prop drilling?
 
 A:`Props drilling` is a term used in the React community to refer to the process of passing data from one part of the React Component tree to another by going through other parts that do not need the data, but merely pass it along
 
-## What is lifting the state up?
+## Q: What is lifting the state up?
 
 A:Sometimes,you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as `lifting state up`
 
@@ -168,12 +168,12 @@ Accordian example :Let’s say you want to change it so that only one panel(acco
 
 This will allow the `Accordion` component to coordinate both `Panels` and only expand one at a time.
 
-## - What are Context Provider and Context Consumer?
+##  Q: What are Context Provider and Context Consumer?
 
 A:  `Context API` consists of two main components: the `Context Provider` and the `Context Consumer`. The provider is responsible for creating and managing the context, which holds the data to be shared between components. On the other hand, the consumer is used to access the context and its data from within a component.
 
 
-## If you dont pass a value to the provider does it take the default values?
+## Q: If you dont pass a value to the provider does it take the default values?
 
 A: The Context.Provider component accepts a value prop which will be available to all child components that consume the context. If you don't pass a value prop to the Context.Provider, it will use the default value that was passed to React.createContext() when the context was created.
 
