@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -9,6 +9,7 @@ import Error from "./src/components/Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import Shimmer from "./src/components/Shimmer";
 import Login from "./src/components/Login";
+import UserContext from "./src/utils/UserContext";
 // import Grocery from "./src/components/Grocery";
 
 //no key(not acceptable)<<<<<<<< index as a key <<<<<<<<<<<<<<unique id (most recommeded)
@@ -29,11 +30,25 @@ const Grocery = lazy(() => import("./src/components/Grocery"));
 const About = lazy(() => import("./src/components/About"));
 
 const Applayout = () => {
+  const [userName,setUserName] =useState();
+
+  //authentication example
+  useEffect(()=>{
+    const userData={
+      name:"Anuj kumar",
+      email:"anuj846k"
+    };
+    setUserName(userData.name);
+
+  },[]);
+
   return (
-    <div className="app">
+    <UserContext.Provider value={{loggedInUser:userName}}>
+      <div className="app">
       <Header />
       <Outlet />
     </div>
+    </UserContext.Provider>
   );
 };
 

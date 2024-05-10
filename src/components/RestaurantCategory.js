@@ -1,4 +1,4 @@
-import ItemList from "./itemList";
+  import ItemList from "./itemList";
 import { TiArrowSortedDown } from "react-icons/ti";
 
 const RestaurantCategory = ({ info,showItems,setShowIndex}) => {

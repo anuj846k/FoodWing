@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { LOGO_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const onlineStatus = useOnlineStatus();
+
+
+  const {loggedInUser} = useContext(UserContext);
+  console.log(loggedInUser);
 
   return (
     <header className="bg-white text-black shadow-md  m-2 rounded-md">
@@ -64,6 +69,7 @@ const Header = () => {
                 {isLoggedIn ? "Logout" : "Login"}
               </button>
             </Link>
+            <li className="p-2 font-bold list-none">{loggedInUser}</li>
           </div>
         </nav>
       </div>
