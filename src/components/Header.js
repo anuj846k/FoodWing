@@ -4,6 +4,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { LOGO_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,6 +13,16 @@ const Header = () => {
 
   const {loggedInUser} = useContext(UserContext);
   console.log(loggedInUser);
+
+
+  //Selector 
+
+  const cart=useSelector((store)=>store.cart.cartItems);
+  console.log(cart);
+
+
+
+
 
   return (
     <header className="bg-white text-black shadow-md  m-2 rounded-md">
@@ -53,9 +64,10 @@ const Header = () => {
                 Grocery
               </Link>
             </li>
-            <li className="relative flex items-center text-4xl">
-              <Link to="/cart" className="text-lg hover:text-orange-500">
+            <li className=" flex items-center text-4xl">
+              <Link to="/cart" className="text-lg hover:text-orange-500 -center flex items-center ">
                 <FiShoppingCart size={24} />
+                <span className="-mt-6 font-bold">{cart.length}</span>
               </Link>
             </li>
           </ul>

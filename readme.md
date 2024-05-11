@@ -16,11 +16,10 @@ If differences are found (for example, different attributes, different order of 
 
 
 ## 🔴useEffect() important topic
-    ```
+    
     useEffect() hook has two arguments one is callback function and other is empty dependencies array which means If you pass an empty array ([]), the effect will only run once after the first render.
     If there will be no dependencies array the api will be called again and again,This is because by default, effects run after every completed render.
     
-    ```
 
 ## Q: How will `useEffect` behave if we `don't add` a `dependency array`?
 
@@ -180,3 +179,29 @@ A:  `Context API` consists of two main components: the `Context Provider` and th
 
 A: The Context.Provider component accepts a value prop which will be available to all child components that consume the context. If you don't pass a value prop to the Context.Provider, it will use the default value that was passed to React.createContext() when the context was created.
 
+
+---------------------------------------------------------------------------------
+
+
+
+# 🟪 Redux Toolkit
+
+    - Install @reduxjs/toolkit and react-redux
+    - Build our own store 
+    - Connect or subscribe our store to app.
+    - Create a slice(cartSlice)
+    - dispatch(action)
+    - Selector for reading data
+
+
+
+# Homework find the difference between the all three
+    
+onclick ={handleAdditem}
+
+onclick ={()=>handleAdditem(item)}
+
+onclick =handleAdditem(item)
+
+
+play with redux devtool and read the documentation in redux RTK query

@@ -1,7 +1,22 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 import { useState } from "react";
+import {addItem} from '../utils/cartSlice'
 
 const ItemList = ({ item }) => {
+  
+  const dispatch=useDispatch();
+
+
+  const handleAdditem = (item) => {
+
+    //Dispatch an action
+    dispatch(addItem(item));
+    
+    
+  }
+
+  
   const [expandedItem, setExpandedItem] = useState(null);
   
   return (
@@ -59,7 +74,7 @@ const ItemList = ({ item }) => {
                     />
                   </div>
 
-                  <button className="font-bold absolute ml-10 bottom-0 text-green-600 px-10 py-2 bg-white rounded-lg shadow-lg -mb-7 hover:bg-gray-200 hover:transform hover:scale-105 hover:shadow-md">
+                  <button onClick={()=>handleAdditem(item)} className="font-bold absolute ml-10 bottom-0 text-green-600 px-10 py-2 bg-white rounded-lg shadow-lg -mb-7 hover:bg-gray-200 hover:transform hover:scale-105 hover:shadow-md">
                     ADD
                   </button>
                 </div>
