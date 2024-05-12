@@ -193,15 +193,80 @@ A: The Context.Provider component accepts a value prop which will be available t
     - dispatch(action)
     - Selector for reading data
 
+## Q:Advantages of using Redux Toolkit over Redux?
+
+A: **Simplified Redux Setup**:reduces boilerplate code and makes Redux development faster.Redux Toolkit provides utilities like `createSlice`,`createReducer`, and `configureStore`.
+
+**Immutability with Immer**:Redux Toolkit integrates Immer under the hood, allowing you to write reducers that appear to `mutate` state directly, but are actually creating new `immutable` states behind the scenes.This simplifies state management.
+
+**Concise Code**: With `Redux Toolkit's` createSlice function, you can define reducers and action creators in a single file, reducing the need for separate action type constants and action creator functions. This leads to cleaner and more concise code.
 
 
-# Homework find the difference between the all three
+
+
+## Q: Explain Dispatcher?
+A:You dispatch actions using the dispatch function provided by Redux. This function is typically accessed via the Redux store. When you dispatch an action, Redux Toolkit ensures that it flows through the middleware (if any) and reaches the appropriate reducers.
+
+
+## Q: Explain Reducer?
+
+A:A Reducer in Redux is a pure function responsible for determining how the application state should change in response to actions dispatched to the Redux store. It takes the current state and an action as arguments, and returns a new state object representing the updated application state.
+
+The sum up basically is Reducer is function that the slice our store based on the action dispatched. 
+
+
+## Q: Explain Slice?
+
+A: So first we create a Redux store for example appStore.js and then inside that we import a slice which means a portion of redux store that contains both state data and logic to update the state .Slices are created by createSlice function provided by Redux Toolkit.
+
+## Q: Explain createSlice and the configuration it takes.
+A: createSlice function takes a single argument which is an object containing the configuration details like this createSlice({})
+Below is an example of Slice and createSlice :
+```
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  count: 0
+};
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.count++;
+    },
+    decrement: (state) => {
+      state.count--;
+    },
+    reset: (state) => {
+      state.count = 0;
+    }
+  }
+});
+
+export const { increment, decrement, reset } = counterSlice.actions;
+export default counterSlice.reducer;
+
+```
+
+
+## Q: Explain Selector.
+
+Selector are like special tools that help you to `read` operations its like You are `Subscribing to the store`.
+
+If you want to pick anything from store You can pick it up but after Subscribing using useSelector.
+
+They make it easier to get just the right data for your components, so you don't have to dig through everything yourself. 
+
+
+
+
+
+## Homework find the difference between the all three
     
 onclick ={handleAdditem}
 
 onclick ={()=>handleAdditem(item)}
 
 onclick =handleAdditem(item)
-
-
-play with redux devtool and read the documentation in redux RTK query
