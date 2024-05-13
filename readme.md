@@ -261,12 +261,21 @@ They make it easier to get just the right data for your components, so you don't
 
 
 
+# Types of testing (developer)
+- Unit Testing 
+- Integration Testing
+- End to End Testing -e2e training 
 
+# Setting up testing in our App
+- Install React testing library. 
+- Install jest.
+- Install babel dependencies.
+- Configure Babel
+- Create babel.config.js in root level of file.
+- Configure parcel config file to disable default babel transpilation
+- Jest Configuration
+- Install jsdom library
 
-## Homework find the difference between the all three
-    
-onclick ={handleAdditem}
+## notes of testing our project
+__ is known as Dunder 
 
-onclick ={()=>handleAdditem(item)}
-
-onclick =handleAdditem(item)
