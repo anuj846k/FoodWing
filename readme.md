@@ -275,7 +275,12 @@ They make it easier to get just the right data for your components, so you don't
 - Configure parcel config file to disable default babel transpilation
 - Jest Configuration
 - Install jsdom library
+- Install(npm i -D) and Include @babel/preset-react - to make JSX work in test cases 
+- npm i -D @testing-library/jest-dom
 
 ## notes of testing our project
-__ is known as Dunder 
+ - __ is known as Dunder in __test___ 
+ - Whenever there are multiple items we use getAllByRole()
+ - 
+
 
