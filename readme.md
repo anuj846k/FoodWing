@@ -262,8 +262,8 @@ They make it easier to get just the right data for your components, so you don't
 
 
 # Types of testing (developer)
-- Unit Testing 
-- Integration Testing
+- Unit Testing ✅
+- Integration Testing✅
 - End to End Testing -e2e training 
 
 # Setting up testing in our App
@@ -281,6 +281,5 @@ They make it easier to get just the right data for your components, so you don't
 ## notes of testing our project
  - __ is known as Dunder in __test___ 
  - Whenever there are multiple items we use getAllByRole()
- - 
 
 
