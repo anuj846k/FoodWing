@@ -13,6 +13,8 @@ import UserContext from "./src/utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./src/utils/appStore";
 import Cart from "./src/components/Cart";
+import Footer from "./src/components/Footer";
+import AppDownload from "./src/components/AppDownload";
 
 // import Grocery from "./src/components/Grocery";
 
@@ -51,6 +53,7 @@ const Applayout = () => {
         <div className="app">
           <Header />
           <Outlet />
+          <Footer />
         </div>
       </UserContext.Provider>
     </Provider>
@@ -66,7 +69,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: (<Body />)
       },
       {
         path: "/grocery",
@@ -81,6 +84,7 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense fallback={<Shimmer />}>
             <About />
+            <AppDownload/>
           </Suspense>
         ),
       },

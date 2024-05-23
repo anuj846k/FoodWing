@@ -11,8 +11,13 @@ const cartSlice = createSlice({
       //mutating the state
       state.cartItems.push(action.payload);
     },
-    removeItem: (state) => {
-      state.cartItems = state.cartItems.pop();
+    removeItem: (state, action) => {
+      const itemId = action.payload.card.info.id;
+      const index = state.cartItems.findIndex(item => item.card.info.id === itemId);
+      
+      if (index !== -1) {
+        state.cartItems.splice(index, 1);
+      }
     },
     clearCart: (state) => {
       // RTK (redux toolkit) says either Mutate the exisiting state or return a new state

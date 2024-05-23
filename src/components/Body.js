@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useFetchData from "../utils/useFetchData";
 import RestaurantCard, { isOpen } from "./RestaurantCompo";
+import Footer from "./Footer";
 
 const Body = () => {
   const [search, setSearch] = useState("");

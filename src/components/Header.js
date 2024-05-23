@@ -1,14 +1,12 @@
 import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import { LOGO_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const onlineStatus = useOnlineStatus();
 
 
   const {loggedInUser} = useContext(UserContext);
@@ -25,8 +23,8 @@ const Header = () => {
 
 
   return (
-    <header className="bg-white text-black shadow-md  m-2 rounded-md">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header className="bg-white text-black shadow-md m-2 rounded-md ">
+      <div className="container mx-auto  py-3 flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/">
             <img
@@ -72,10 +70,9 @@ const Header = () => {
             </li>
           </ul>
           <div className="flex items-center">
-            <p className="mr-4">Online Status: {onlineStatus ? "✅" : "🔴"}</p>
             <Link to="/login">
               <button
-                className="text-lg bg-transparent border border-black px-4 py-2 rounded-md transition-colors hover:bg-black hover:text-white"
+                className="text-lg bg-transparent border border-black px-6 py-1 rounded-full transition-colors hover:bg-black hover:text-white"
                 onClick={() => setIsLoggedIn((prevState) => !prevState)}
               >
                 {isLoggedIn ? "Logout" : "Login"}

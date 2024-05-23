@@ -14,6 +14,10 @@ const RestaurantMenu = () => {
 
   const [showIndex,setShowIndex] =useState();
 
+  const handleSetShowIndex = (index) => {
+    setShowIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
 
   const { name, cuisines, costForTwoMessage, sla, avgRating } =
     resInfo?.cards[2]?.card?.card?.info || {};
@@ -34,7 +38,7 @@ const RestaurantMenu = () => {
   return resInfo === null ? (
     <Shimmer />
   ) : (
-    <div className="flex relative flex-col items-center">
+    <div className="flex relative flex-col items-center mb-40">
       <div className="rounded-2xl p-3 w-1/2  m-5">
         <div className="flex justify-between items-center border p-4 rounded-lg shadow-md">
           <div className="left">
@@ -70,8 +74,8 @@ const RestaurantMenu = () => {
           <RestaurantCategory
             key={category?.card?.card.title}
             info={category?.card?.card}
-            showItems={index===showIndex? true : false}
-            setShowIndex={()=>setShowIndex(index)}
+            showItems={index===showIndex}
+            setShowIndex={()=>handleSetShowIndex(index)}
           />
         ))
       ) : (
