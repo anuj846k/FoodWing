@@ -15,8 +15,6 @@ const Grocery = () => {
     config: { duration: 500 },
   });
 
-
-
   return (
     <motion.div
       className="p-4 w-full items-center mb-32 h-auto flex flex-col"
@@ -24,30 +22,22 @@ const Grocery = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <motion.div
-        className="h-80 w-full rounded-md mb-10 flex flex-col md:flex-row shadow-lg py-8 px-4 md:px-10 relative"
-        style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-
-      >
+      <motion.div className="h-80 w-full rounded-md mb-10 flex flex-col md:flex-row shadow-lg py-8 px-4 md:px-10 relative blurred-bg">
         <div className="absolute w-full h-full rounded-md"></div>
         <div className="z-10 md:w-1/2 md:text-left relative">
           <motion.h1
-            className="text-4xl md:text-6xl font-bold text-white mb-4"
+            className="text-3xl md:text-6xl font-bold text-white mb-4"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.75 }}
           >
             Welcome to
-            <span className="text-green-600 mx-4 animate-pulse font-bold">
+            <span className="text-green-500 mx-4 animate-pulse font-extrabold">
               GroceryMart !!
             </span>
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl mt-10 font-bold text-black relative z-10 bg-white shadow-2xl rounded-full p-4"
+            className="text-md md:text-xl mt-10 rounded-md p-2  font-bold text-black relative z-10 bg-white shadow-2xl md:rounded-full md:p-4"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.75, delay: 0.25 }}

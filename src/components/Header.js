@@ -24,24 +24,25 @@ const Header = () => {
 
   return (
     <header className="bg-white text-black shadow-md m-2 rounded-md ">
-      <div className="container mx-auto  py-3 flex justify-between items-center">
-        <div className="flex items-center">
+      <div className="container mx-auto py-2 md:py-3 flex justify-between items-center">
+        <div className="flex items-center ml-1">
           <Link to="/">
             <img
-              className="transition duration-300 transform hover:scale-110 w-20 h-20 rounded-full border-4 p-1 border-orange-500"
+              className="transition  duration-300 transform hover:scale-110 md:w-20 md:h-20 h-12 w-12 rounded-full border-4 p-1  border-orange-500"
               src={LOGO_URL}
               alt="Logo"
             />
           </Link>
           <Link
             to="/"
-            className="text-4xl ml-2 font-bold transition duration-300 ease-in-out hover:text-orange-500"
+            className="md:text-4xl  text-2xl ml-2 font-bold transition duration-300 ease-in-out hover:text-orange-500"
           >
             FoodWing
           </Link>
+          
         </div>
         <nav className="flex items-center space-x-6">
-          <ul className="flex space-x-4">
+          <ul className="space-x-4 md:flex hidden">
             <li>
               <Link to="/" className="text-lg hover:text-orange-500 ">
                 Home
@@ -69,7 +70,7 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="flex items-center">
+          <div className="md:flex hidden items-center">
             <Link to="/login">
               <button
                 className="text-lg bg-transparent border border-black px-6 py-1 rounded-full transition-colors hover:bg-black hover:text-white"

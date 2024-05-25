@@ -1,10 +1,13 @@
 import React from "react";
 import { LOGO_URL } from "../utils/constants";
+import { GiNinjaHeroicStance } from "react-icons/gi";
+
 import {
   FaFacebook,
   FaTwitter,
   FaInstagram,
   FaLinkedin,
+  FaHeart
 } from "react-icons/fa6";
 
 const Footer = () => {
@@ -17,7 +20,7 @@ const Footer = () => {
             src={LOGO_URL}
             alt="Logo"
           />
-          <p className="mt-4 text-center text-sm">FoodWing: Where Every Meal Takes Flight</p>
+          <p className="mt-4 text-center text-sm lg:text-base">FoodWing: Where Every Meal Takes Flight</p>
           <div className="flex justify-around w-full mt-4">
             <FaFacebook className="mx-2 cursor-pointer" size={24} />
             <FaTwitter className="mx-2 cursor-pointer" size={24} />
@@ -26,24 +29,25 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col items-center mb-8 lg:mb-0">
-          <h2 className="font-bold text-3xl mb-4">Company</h2>
-          <ul className="text-sm list-none list-inside">
-            <li>Home</li>
-            <li>About us</li>   
-            <li>Delivery</li>
+          <h2 className="font-bold text-xl lg:text-3xl mb-4">Company</h2>
+          <ul className="text-sm lg:text-base list-none list-inside text-center lg:text-left">
+            <li className="mb-2 lg:mb-0">Home</li>
+            <li className="mb-2 lg:mb-0">About Us</li>
+            <li className="mb-2 lg:mb-0">Delivery</li>
             <li>Privacy Policy</li>
           </ul>
         </div>
         <div className="flex flex-col items-center mb-8 lg:mb-0">
-          <h2 className="font-bold text-3xl mb-4">GET IN TOUCH</h2>
-          <ul className="text-sm list-none list-inside">
-            <li>+1-233-388-3838</li>
+          <h2 className="font-bold text-xl lg:text-3xl mb-4">Get in Touch</h2>
+          <ul className="text-sm lg:text-base list-none list-inside text-center lg:text-left">
+            <li className="mb-2 lg:mb-0">+1-233-388-3838</li>
             <li>contact@foodWing.com</li>
           </ul>
         </div>
       </div>
-      <hr className="w-full my-8 border-gray-500"/>
-      <p className="text-center text-sm">© 2024 <span className="text-orange-400">FoodWing</span>. All Rights Reserved, Made by anuj</p>
+      <hr className="w-full my-8 border-gray-500" />
+      <p className="text-center text-sm lg:text-base">© 2024 <span className="text-orange-400">FoodWing</span>. All Rights Reserved </p>
+      <p className="text-center font-bold">~ Made by anuj846k <GiNinjaHeroicStance size={35} className="inline-block text-white -500 ml-1"/></p>
     </footer>
   );
 };
