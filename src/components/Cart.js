@@ -111,7 +111,7 @@ const Cart = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex items-center justify-center absolute ml-5  bottom-0 text-green-600 px-10 py-2 bg-white rounded-lg shadow-lg -mb-7">
+                    <div className="flex items-center justify-center absolute ml-7  bottom-0 text-green-600 px-10 py-2 bg-white rounded-lg shadow-lg -mb-7">
                         <button onClick={() => handleRemoveItem(item)} className="font-bold text-red-600 px-2">-</button>
                         <span className="px-2">{item.quantity}</span>
                         <button onClick={() => handleAddItem(item)} className="font-bold text-green-600 px-2">+</button>
