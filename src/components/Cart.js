@@ -32,22 +32,20 @@ const Cart = () => {
   const uniqueItems = getUniqueItems();
 
   const handleAddItem = (item) => {
-    const itemId = item.card.info.id;
     dispatch(addItem(item));
   };
 
   const handleRemoveItem = (item) => {
-    const itemId = item.card.info.id;
     dispatch(removeItem(item));
   };
 
   const [expandedItem, setExpandedItem] = useState(null);
 
   return (
-    <div className=" m-4 p-4 mb-80">
+    <div className="m-4 p-4 mb-80">
       <h1 className="text-4xl font-bold text-center">Cart</h1>
-      <div className="w-9/12 m-auto">
-        <div className="flex justify-between items-center mb-4">
+      <div className="w-full lg:w-9/12 mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-4">
           <button
             className="flex items-center p-2 m-2 bg-red-600 text-white rounded-lg"
             onClick={handleClearCart}
@@ -65,19 +63,19 @@ const Cart = () => {
             Cart is empty, add items to the cart
           </h1>
         )}
-        <div className="mt-3 pl-8 pr-8 mb-10 overflow-hidden">
+        <div className="mt-3 px-4 md:px-8 mb-10 overflow-hidden">
           <ul>
             {uniqueItems.map((item) => (
-              <li key={item.card.info.id} className="border-b">
-                <div className="flex justify-between items-center">
-                  <div className="flex flex-col">
+              <li key={item.card.info.id} className="border-b py-4">
+                <div className="flex flex-col md:flex-row mb-10 justify-between items-start md:items-center">
+                  <div className="flex flex-col mb-4 md:mb-0">
                     <span className="text-lg font-semibold text-gray-800">
                       {item.card.info.name}
                     </span>
                     <span className="text-black-600 mb-2 font-semibold">
                       Rs. {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
                     </span>
-                    <span className="text-gray-600 mr-16">
+                    <span className="text-gray-600">
                       {item.card.info.description &&
                         (expandedItem === item.card.info.id ||
                           item.card.info.description.length <= 100) ? (
@@ -88,7 +86,7 @@ const Cart = () => {
                                 className="text-green-500 cursor-pointer"
                                 onClick={() => setExpandedItem(null)}
                               >
-                                 Less
+                                {" "} Less
                               </span>
                             )}
                           </>
@@ -99,25 +97,25 @@ const Cart = () => {
                               className="text-orange-500 cursor-pointer"
                               onClick={() => setExpandedItem(item.card.info.id)}
                             >
-                               More
+                              {" "} More
                             </span>
                           </>
                         )}
                     </span>
                   </div>
-                  <div className="flex flex-col relative mb-14">
-                    <div className="w-48 h-44 mt-4 rounded-xl overflow-hidden">
+                  <div className="flex flex-col relative md:ml-6 mb-15 md:mb-0">
+                    <div className="w-52 md:w-48 h-44 mt-4 rounded-xl overflow-hidden">
                       <img
                         src={CDN_URL + item.card.info.imageId}
                         alt="Item Image"
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex items-center justify-center absolute ml-5 bottom-0 text-green-600 px-10 py-2 bg-white rounded-lg shadow-lg -mb-7">
-                      <button onClick={() => handleRemoveItem(item)} className="font-bold text-red-600 px-2">-</button>
-                      <span className="px-2">{item.quantity}</span>
-                      <button onClick={() => handleAddItem(item)} className="font-bold text-green-600 px-2">+</button>
-                    </div>
+                    <div className="flex items-center justify-center absolute ml-5  bottom-0 text-green-600 px-10 py-2 bg-white rounded-lg shadow-lg -mb-7">
+                        <button onClick={() => handleRemoveItem(item)} className="font-bold text-red-600 px-2">-</button>
+                        <span className="px-2">{item.quantity}</span>
+                        <button onClick={() => handleAddItem(item)} className="font-bold text-green-600 px-2">+</button>
+                      </div>
                   </div>
                 </div>
               </li>

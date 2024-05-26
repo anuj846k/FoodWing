@@ -42,9 +42,9 @@ const ItemList = ({ item }) => {
             const itemCount = itemCounts[itemId] || 0;
             return (
               <li key={itemId} className="border-b">
-                <div className="flex justify-between items-center">
-                  <div className="flex flex-col">
-                    <span className="text-lg font-semibold text-gray-800">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                  <div className="flex flex-col mb-4 md:mb-0">
+                    <span className="md:text-lg font-semibold text-gray-800">
                       {item.card.info.name}
                     </span>
                     <span className="text-black-600 mb-2 font-semibold">
@@ -52,7 +52,7 @@ const ItemList = ({ item }) => {
                       {item.card.info.price / 100 ||
                         item.card.info.defaultPrice / 100}
                     </span>
-                    <span className="text-gray-600 mr-16">
+                    <span className="text-gray-600 mr-16  w-full md:w-3/4" >
                       {item.card.info.description &&
                         (expandedItem === itemId ||
                         item.card.info.description.length <= 100) ? (

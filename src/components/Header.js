@@ -1,4 +1,4 @@
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { LOGO_URL } from "../utils/constants";
@@ -8,19 +8,13 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-
-  const {loggedInUser} = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
   console.log(loggedInUser);
 
+  //Selector
 
-  //Selector 
-
-  const cart=useSelector((store)=>store.cart.cartItems);
+  const cart = useSelector((store) => store.cart.cartItems);
   console.log(cart);
-
-
-
-
 
   return (
     <header className="bg-white text-black shadow-md m-2 rounded-md ">
@@ -39,38 +33,41 @@ const Header = () => {
           >
             FoodWing
           </Link>
-          
         </div>
         <nav className="flex items-center space-x-6">
-          <ul className="space-x-4 md:flex hidden">
+          <ul className="space-x-4 md:flex hidden ">
             <li>
               <Link to="/" className="text-lg hover:text-orange-500 ">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/about" className="text-lg hover:text-orange-500">
+              <Link to="/about" className="text-lg hover:text-orange-500 ">
                 About
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="text-lg hover:text-orange-500">
+              <Link to="/contact" className="text-lg hover:text-orange-500 ">
                 Contact
               </Link>
             </li>
             <li>
-              <Link to="/grocery" className="text-lg hover:text-orange-500">
+              <Link to="/grocery" className="text-lg hover:text-orange-500 ">
                 Grocery
               </Link>
             </li>
-            <li className=" flex items-center text-4xl">
-              <Link to="/cart" className="text-lg hover:text-orange-500 -center flex items-center ">
-                <FiShoppingCart size={24} />
-                <span className="-mt-6 font-bold">{cart.length}</span>
-              </Link>
-            </li>
           </ul>
-          <div className="md:flex hidden items-center">
+          <div className="flex items-center mr-4 text-3xl">
+            <Link
+              to="/cart"
+              className="text-lg hover:text-orange-500 flex items-center"
+            >
+              <FiShoppingCart size={24}  className=""/>
+              <span className="-mt-6 font-bold">{cart.length}</span>
+            </Link>
+          </div>
+
+          <div className="md:flex hidden md:ml-1.5 items-center">
             <Link to="/login">
               <button
                 className="text-lg bg-transparent border border-black px-6 py-1 rounded-full transition-colors hover:bg-black hover:text-white"
@@ -79,7 +76,7 @@ const Header = () => {
                 {isLoggedIn ? "Logout" : "Login"}
               </button>
             </Link>
-            <li className="p-2 font-bold list-none">{loggedInUser}</li>
+            {/* <li className="p-2 font-bold list-none">{loggedInUser}</li> */}
           </div>
         </nav>
       </div>

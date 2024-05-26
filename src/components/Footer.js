@@ -1,13 +1,14 @@
 import React from "react";
 import { LOGO_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 import { GiNinjaHeroicStance } from "react-icons/gi";
+
 
 import {
   FaFacebook,
   FaTwitter,
   FaInstagram,
   FaLinkedin,
-  FaHeart
 } from "react-icons/fa6";
 
 const Footer = () => {
@@ -33,7 +34,7 @@ const Footer = () => {
           <ul className="text-sm lg:text-base list-none list-inside text-center lg:text-left">
             <li className="mb-2 lg:mb-0">Home</li>
             <li className="mb-2 lg:mb-0">About Us</li>
-            <li className="mb-2 lg:mb-0">Delivery</li>
+            <li className="mb-2 lg:mb-0">grocery</li>
             <li>Privacy Policy</li>
           </ul>
         </div>

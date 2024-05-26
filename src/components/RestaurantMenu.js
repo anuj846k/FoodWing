@@ -39,25 +39,25 @@ const RestaurantMenu = () => {
     <Shimmer />
   ) : (
     <div className="flex relative flex-col items-center mb-40">
-      <div className="rounded-2xl p-3 w-1/2  m-5">
-        <div className="flex justify-between items-center border p-4 rounded-lg shadow-md">
+      <div className="rounded-2xl p-2 md:w-1/2  m-5">
+        <div className="flex md:justify-between items-center border  md:p-4 p-5 rounded-lg shadow-md">
           <div className="left">
-            <h1 className="text-3xl font-bold text-black-700">{name}</h1>
-            <h3 className="text-lg font-semibold flex items-center text-black-600 mt-2">
+            <h1 className="md:text-3xl font-bold text-black-700">{name}</h1>
+            <h3 className="md:text-lg font-semibold flex items-center text-black-600 mt-2">
               <IoMdStar className="text-green-500" />
-              <span className="text-lg font-semibold text-black ml-1">
+              <span className="md:text-lg font-semibold text-black ml-1">
                 {avgRating} Rating
               </span>
             </h3>
-            <h3 className="text-sm text-orange-500 underline mt-1">
+            <h3 className="md:text-sm text-xs text-orange-500 underline mt-1">
               {cuisines.join(", ")}
             </h3>
           </div>
-          <div className="right">
-            <h3 className="text-lg font-semibold text-black-600">
+          <div className="right ml-5">
+            <h3 className="md:text-lg font-semibold text-black-600">
               {costForTwoMessage}
             </h3>
-            <h4 className="text-sm text-gray-500 mt-1">
+            <h4 className="md:text-sm text-xs text-gray-500 mt-1">
               {sla.deliveryTime} minutes
             </h4>
           </div>
