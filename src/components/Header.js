@@ -1,23 +1,18 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { FiShoppingCart } from "react-icons/fi";
+import { FiMenu, FiShoppingCart } from "react-icons/fi";
 import { LOGO_URL } from "../utils/constants";
-import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const { loggedInUser } = useContext(UserContext);
-  console.log(loggedInUser);
-
-  //Selector
-
+  // Use selectors
   const cart = useSelector((store) => store.cart.cartItems);
   console.log(cart);
 
   return (
-    <header className="bg-white text-black shadow-md m-2 rounded-md ">
+    <header className="bg-white text-black shadow-md m-2 rounded-md ">  
       <div className="container mx-auto py-2 md:py-3 flex justify-between items-center">
         <div className="flex items-center ml-1">
           <Link to="/">
@@ -29,12 +24,12 @@ const Header = () => {
           </Link>
           <Link
             to="/"
-            className="md:text-4xl  text-2xl ml-2 font-bold transition duration-300 ease-in-out hover:text-orange-500"
+            className="md:text-4xl text-2xl ml-2 font-bold transition duration-300 ease-in-out hover:text-orange-500"
           >
             FoodWing
           </Link>
         </div>
-        <nav className="flex items-center space-x-6">
+        <nav className="flex items-center space-x-4 ">
           <ul className="space-x-4 md:flex hidden ">
             <li>
               <Link to="/" className="text-lg hover:text-orange-500 ">
@@ -57,12 +52,12 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="flex items-center mr-4 text-3xl">
+          <div className="flex items-center md:mr-4 text-3xl">
             <Link
               to="/cart"
               className="text-lg hover:text-orange-500 flex items-center"
             >
-              <FiShoppingCart size={24}  className=""/>
+              <FiShoppingCart size={24} className="" />
               <span className="-mt-6 font-bold">{cart.length}</span>
             </Link>
           </div>
@@ -76,8 +71,12 @@ const Header = () => {
                 {isLoggedIn ? "Logout" : "Login"}
               </button>
             </Link>
+
             {/* <li className="p-2 font-bold list-none">{loggedInUser}</li> */}
           </div>
+          <li className="flex md:hidden p-2">
+            <FiMenu className="text-3xl" />
+          </li>
         </nav>
       </div>
     </header>

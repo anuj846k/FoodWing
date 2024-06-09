@@ -48,7 +48,8 @@ const Body = () => {
           className="filter-btn px-4 py-2 bg-yellow-400 text-white rounded-md"
           onClick={() => {
             const filteredList = listofres.filter(
-              (restaurant) => restaurant?.info?.avgRating > 4.4
+              (restaurant) => restaurant?.info?.avgRating > 4.4||
+                              restaurant.info?.avgRating > 4.1   
             );
             setFilteredRestaurant(filteredList);
           }}
