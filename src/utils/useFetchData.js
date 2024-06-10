@@ -14,12 +14,34 @@ const useFetchData = () => {
   }, []);
 
 
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    console.log(json);
+// Function to fetch data using the proxy
+const fetchData = async () => {
+  try {
+      const response = await fetch(
+          "/api/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
+          {
+              method: 'GET',
+              credentials: 'include', // Ensure cookies and credentials are sent with the request
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          }
+      );
+
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const json = await response.json();
+      console.log(json);
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }
+};
+
+// Example usage
+fetchData();
+
 
     setListofRes(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -30,6 +52,6 @@ const useFetchData = () => {
   };
 
   return { listofres, filteredRestaurant,setFilteredRestaurant};
-};
+
 
 export default useFetchData;
