@@ -1,0 +1,9 @@
+{
+    "/api": {
+        "target":"https://foodwing-server.onrender.com/api/"
+    }
+}
+
+
+
+
