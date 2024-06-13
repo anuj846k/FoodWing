@@ -3,7 +3,6 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { GiNinjaHeroicStance } from "react-icons/gi";
 
-
 import {
   FaFacebook,
   FaTwitter,
@@ -21,12 +20,22 @@ const Footer = () => {
             src={LOGO_URL}
             alt="Logo"
           />
-          <p className="mt-4 text-center text-sm lg:text-base">FoodWing: Where Every Meal Takes Flight</p>
+          <p className="mt-4 text-center text-sm lg:text-base">
+            FoodWing: Where Every Meal Takes Flight
+          </p>
           <div className="flex justify-around w-full mt-4">
-            <FaFacebook className="mx-2 cursor-pointer" size={24} />
-            <FaTwitter className="mx-2 cursor-pointer" size={24} />
-            <FaInstagram className="mx-2 cursor-pointer" size={24} />
-            <FaLinkedin className="mx-2 cursor-pointer" size={24} />
+            <Link to="https://www.linkedin.com/in/anuj-kumar-6aa13b264/">
+              <FaFacebook className="mx-2 cursor-pointer" size={24} />
+            </Link>
+            <Link to="https://twitter.com/anuj846kk">
+              <FaTwitter className="mx-2 cursor-pointer" size={24} />
+            </Link>
+            <Link to="https://www.instagram.com/anuj846k/">
+              <FaInstagram className="mx-2 cursor-pointer" size={24} />
+            </Link>
+            <Link to="https://www.linkedin.com/in/anuj-kumar-6aa13b264/">
+              <FaLinkedin className="mx-2 cursor-pointer" size={24} />
+            </Link>
           </div>
         </div>
         <div className="flex flex-col items-center mb-8 lg:mb-0">
@@ -47,8 +56,17 @@ const Footer = () => {
         </div>
       </div>
       <hr className="w-full my-8 border-gray-500" />
-      <p className="text-center text-sm lg:text-base">© 2024 <span className="text-orange-400">FoodWing</span>. All Rights Reserved </p>
-      <p className="text-center font-bold">~ Made by anuj846k <GiNinjaHeroicStance size={35} className="inline-block text-white -500 ml-1"/></p>
+      <p className="text-center text-sm lg:text-base">
+        © 2024 <span className="text-orange-400">FoodWing</span>. All Rights
+        Reserved{" "}
+      </p>
+      <p className="text-center font-bold">
+        ~ Made by anuj846k{" "}
+        <GiNinjaHeroicStance
+          size={35}
+          className="inline-block text-white -500 ml-1"
+        />
+      </p>
     </footer>
   );
 };
