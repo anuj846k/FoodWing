@@ -47,7 +47,7 @@ const RestaurantMenu = () => {
               <IoMdStar className="text-green-500" />
               <span className="md:text-lg font-semibold text-black ml-1">
                 {avgRating} Rating
-              </span>  resInfo?.cards[2]?.card?.card?.info || {};
+              </span>  
 
             </h3>
             <h3 className="md:text-sm text-xs text-orange-500 underline mt-1">
