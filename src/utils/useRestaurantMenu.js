@@ -16,8 +16,9 @@ const useRestaurantMenu = (resId) => {
     const fetchMenu=async()=>{
         try {
             const data=await axios.get(MENU_API+resId);
-            const json=await data.json();
-            setResinfo(json.data);
+            
+            setResinfo(data.data);
+            console.log(data.data)
         } catch (error) {
             console.error(error.message);
         }

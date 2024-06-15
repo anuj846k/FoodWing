@@ -4,5 +4,5 @@ const LOGO_URL =
 
 const Fetch_res = `${process.env.REACT_FOODFIRE_APP_BASE_URL}restaurants?lat=28.5355161&lng=77.3910265&page_type=DESKTOP_WEB_LISTING`;
 
-const MENU_API = `${process.env.REACT_FOODFIRE_APP_BASE_URL}menu?page-type=REGULAR_MENU&complete-menu=true&lat=28.5355161&lng=77.3910265&restaurantId=`;
+const MENU_API = `${process.env.REACT_FOODFIRE_APP_BASE_URL}menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5355161&lng=77.3910265&restaurantId=`;
 export { CDN_URL, LOGO_URL, MENU_API, Fetch_res };

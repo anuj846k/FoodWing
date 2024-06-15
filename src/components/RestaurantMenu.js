@@ -27,7 +27,7 @@ const RestaurantMenu = () => {
       ?.card || {};
 
   const categories =
-    resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -47,7 +47,8 @@ const RestaurantMenu = () => {
               <IoMdStar className="text-green-500" />
               <span className="md:text-lg font-semibold text-black ml-1">
                 {avgRating} Rating
-              </span>
+              </span>  resInfo?.cards[2]?.card?.card?.info || {};
+
             </h3>
             <h3 className="md:text-sm text-xs text-orange-500 underline mt-1">
               {cuisines.join(", ")}
