@@ -7,7 +7,6 @@ const useFetchData = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   //whenever state variables update, React triggers a reconciliation cycle (re-renders the component)
-  console.log("body rendered");
 
   useEffect(() => {
     fetchData();
@@ -17,7 +16,6 @@ const useFetchData = () => {
     try {
       const response = await axios.get(Fetch_res);
       const data = response.data;
-      console.log(data);
       const restaurants = data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
       setListofRes(restaurants);
       setFilteredRestaurant(restaurants);

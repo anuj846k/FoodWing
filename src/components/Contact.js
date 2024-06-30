@@ -26,7 +26,6 @@ const Contact = () => {
       message: Yup.string().required("Message is required"),
     }),
     onSubmit: (values, { resetForm }) => {
-      console.log("Form submitted successfully", values);
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);

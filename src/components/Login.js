@@ -18,8 +18,7 @@ function Login() {
                 .max(10, 'Username must be less than or equal to 10 characters')
                 .required('Username is required'),
         }),
-        onSubmit: (values) => {
-            console.log('Form submitted successfully', values);
+        onSubmit: () => {
             setAccountCreated(true);
             setTimeout(() => {
                 setAccountCreated(false);

@@ -9,7 +9,6 @@ const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const cart = useSelector((store) => store.cart.cartItems);
-  console.log(cart);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

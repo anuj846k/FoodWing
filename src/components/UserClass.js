@@ -3,25 +3,22 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(props);
+    
     this.state = {
         userInfo:{
             name:"anuj",
             location:"Deafault Location"
         },
     };
-    // console.log(this.props.name + "Child Constructor");
+   
   }
 
   componentDidMount() {
-    // console.log(this.props.name + "Child Component Did Mount");
+    
 
-    //Api calls
   }
 
   render() {
-    // console.log(this.props.name + "Child render");
-
     const { name, Location } = this.props;
 
     return (
