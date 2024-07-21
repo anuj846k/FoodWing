@@ -4,6 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 function ResCardSkeleton() {
   return (
     <SkeletonTheme color="#202020" highlightColor="#f2f2f2">
+      <h1 className='text-bold  text-center p-2 font-mono'>Pls Allow 10-15 seconds for data to be fetched ...</h1>
       <div className='shimmer-container flex flex-wrap justify-center gap-5 mt-20 p-5'>
         {[...Array(10)].map((_, index) => (
           <div className='res-card skeleton w-[270px] h-[400px] p-4 shadow-md rounded-lg bg-white transition transform ease-in-out hover:shadow-lg hover:scale-105' key={index}>
