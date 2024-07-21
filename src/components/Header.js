@@ -68,7 +68,7 @@ const Header = () => {
             <div className="md:flex hidden md:ml-1.5 items-center">
               <Link to="/login">
                 <button
-                  className="text-lg bg-transparent border border-black px-6 py-1 rounded-full transition-colors hover:bg-black hover:text-white"
+                  className="text-lg bg-transparent border border-black px-6 mr-2 py-1 rounded-full transition-colors hover:bg-black hover:text-white"
                   onClick={() => setIsLoggedIn((prevState) => !prevState)}
                 >
                   {isLoggedIn ? "Logout" : "Login"}
