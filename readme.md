@@ -26,7 +26,7 @@ Check out the live demo: [FoodWing](https://food-wing.vercel.app/)
 
 ## Redux Flowchart [Cart System] 
 Check out the flowchart here :[Eraser.io](https://app.eraser.io/workspace/NYZl7TAmzosvPYIlh1Ou)
-![Redux Flowchart](redux.png)
+![Redux Flowchart](./src/public/redux.png)
 
 
 I have also created this flowchart to better explain how our Cart management system works in Redux
