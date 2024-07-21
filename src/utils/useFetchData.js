@@ -17,6 +17,7 @@ const useFetchData = () => {
       const response = await axios.get(Fetch_res);
       const data = response.data;
       const restaurants = data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      console.log(restaurants);
       setListofRes(restaurants);
       setFilteredRestaurant(restaurants);
     } catch (error) {
